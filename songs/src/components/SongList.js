@@ -14,7 +14,9 @@ class SongList extends Component {
 // so you might see reducer init with [], but later update as {} instead
 // only action creator can implicitly trigger state change,
 // so reducer respond an updated state, and cause react re-rendered.
-const mapStateToProps = (reduxState) => {
+const mapStateToProps = (reduxState, ownProps) => {
+  // ownProps is defined in react, but not in redux store
+
   console.log(reduxState);
   return reduxState;
 };
