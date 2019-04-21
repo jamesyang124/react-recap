@@ -17,6 +17,23 @@ class SongList extends Component {
 const mapStateToProps = (reduxState, ownProps) => {
   // ownProps is defined in react, but not in redux store
 
+  // disptach(action) returns that action's result.
+  //
+  // for redux middleware, returns plain object for reducers
+  // for redux-thunk may return a (async) function
+  //
+  // as async action function would result to a promise,
+  // so we put await before dispatch to catch resolved promise:
+  //
+  // const aysncAction = () => async dispatch => {};
+  //
+  // from babel: async dispatch => {} transpile to an _asyncToGenerator
+  // await dispatch(aysncAction())
+  //
+  // o.w.
+  // dispatch(await asyncFunction())
+  // then this need redux-promise instead, eagerly evaluated
+
   console.log(reduxState);
   return reduxState;
 };
